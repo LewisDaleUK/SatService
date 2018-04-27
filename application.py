@@ -2,11 +2,11 @@ from datetime import datetime
 import json
 
 from flask import Flask, request
-from . import data, tle
+from src import data, tle
 
-app = Flask(__name__)
+application = Flask(__name__)
 
-@app.route("/satellites", methods=["POST"])
+@application.route("/satellites", methods=["POST"])
 def get_satellites():
     req_data = request.get_json()
 
@@ -28,4 +28,4 @@ def get_satellites():
     return json.dumps(visible_satellites)
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    application.run(debug=True)
