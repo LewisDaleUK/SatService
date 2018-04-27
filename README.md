@@ -25,7 +25,7 @@ res = request.urlopen(req)
 
 ### Output
 
-```
+```python
 >>> res.readlines()
 [{'lat': 52.563920078745866, 'alt': 61.594789369147556, 'name': 'GPS BIIR-2  (PRN 13)', 'lon': -35.95546816840278},
 {'lat': 34.275067462755814, 'alt': 58.959053519385485, 'name': 'GPS BIIR-4  (PRN 20)', 'lon': -23.239479594347436},
