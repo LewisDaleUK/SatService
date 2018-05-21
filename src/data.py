@@ -1,8 +1,12 @@
 import os
+import time
+import stat
 from urllib import request
 
 from .config import DATA_LOCATION, EPHEM_URLS
 
+def file_age():
+    return time.time() - os.stat(DATA_LOCATION)[stat.ST_MTIME]
 
 def download_data():
     data = []
@@ -15,7 +19,7 @@ def download_data():
             f.write(line.decode("utf-8"))
 
 def data_exists():
-    return os.path.isfile(DATA_LOCATION)
+    return os.path.isfile(DATA_LOCATION) and file_age() < 604800
 
 def get_data():
     if not data_exists():
